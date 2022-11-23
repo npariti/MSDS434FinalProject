@@ -25,6 +25,7 @@ SELECT * from `austincrimedata.austincrimedatatrain`;
     
     return "Model training finished"
 
+@app.route('/')
 def model_test():
      query_test = f'''
          SELECT *

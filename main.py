@@ -25,7 +25,7 @@ SELECT * from `austincrimedata.austincrimedatatrain`;
     
     return "Model training finished"
 
-@app.route('/')
+@app.route('/',, methods=['POST'])
 def model_test():
      query_test = f'''
          SELECT *
@@ -38,6 +38,9 @@ def model_test():
      client = bigquery.Client(project = project_id)
      query_job = client.query(query_test)
      query_job.result()
+     df = query_job.to_dataframe()
+     result = df.to_html()
+     print(result)
     
      return "Model prediction finished"
 

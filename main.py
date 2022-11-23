@@ -25,7 +25,7 @@ SELECT * from `austincrimedata.austincrimedatatrain`;
     
     return "Model training finished"
 
-@app.route('/',, methods=['POST'])
+@app.route('/', methods=['POST'])
 def model_test():
      query_test = f'''
          SELECT *

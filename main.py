@@ -11,6 +11,13 @@ table_predict  = 'austincrimedatapredict'
 
 app = Flask(__name__)
 
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    try:
+        endpoint = os.environ['API_ENDPOINT']
+    except KeyError: 
+        endpoint = 'Local'
+
 def model_train():
 
     query_train = f'''
@@ -39,8 +46,7 @@ def model_test():
      query_job = client.query(query_test)
      query_job.result()
      df = query_job.to_dataframe()
-     result = df.to_html()
-     print(result)
+     return render_template('index.html',environment = endpoint, tables = df.to_html())
     
      return "Model prediction finished"
 

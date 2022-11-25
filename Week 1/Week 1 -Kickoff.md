@@ -4,10 +4,10 @@ This is a document for all the coursework and all associated files that lead up 
 Work is still in progress and as new items are added, this repository will be updated as necessary until the project has been completed and submitted for grading. 
 
 # Description
-- This project was designed to meet the requiremnts outlined the course objectives for MSDS 434 
-- The overall idea was to implement a ML model that would predict the crime types in Austin. The final front end would display these predictiosn 
+- This project was designed to meet the requiremnts outlined in the course objectives for MSDS 434 
+- The overall idea was to implement a ML model that would predict the crime types in Austin. The final front end would display these predictions
 - Google Cloud Platform would be utilized as a means of serving the application to end users. 
-  - This would include ingesting adn storing the data, using BigQueryML or AutoML to train and serve a Logistic Regression Model, and using AppEngine to deploy a publicly accessible interface that users can access 
+  - This would include ingesting and storing the data, using BigQueryML or AutoML to train and serve a Logistic Regression Model, and using AppEngine to deploy a publicly accessible interface that users can access 
 -At this time, the interface will display the predictions in a table 
 - Local development has been done to establish the necessary items that will be required to complete the process: 
   - Python and SQL were used to clean the data 

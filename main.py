@@ -21,7 +21,7 @@ def index():
 def model_train():
 
     query_train = f'''
-        CREATE MODEL `{project_id}.{dataset_id}.model2` 
+        CREATE OR REPLACE MODEL `{project_id}.{dataset_id}.model2` 
 OPTIONS (model_type = 'Logistic_reg', input_label_cols = ['primary_type'])
 AS 
 SELECT * from `austincrimedata.austincrimedatatrain`;

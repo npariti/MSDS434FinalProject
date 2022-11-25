@@ -1,0 +1,21 @@
+True label/Predicted label,Agg Assault,Aggravated Assault,Auto Theft,Burglary,Burglary / 
+Breaking & Entering,Homicide: Murder & Nonnegligent Manslaughter,Murder,Rape,Robbery,Theft,Theft: All Other Larceny,Theft: Auto Parts,Theft: BOV,Theft: Coin Op Machine,Theft: Pocket Picking,Theft: Purse Snatching,Theft: Shoplifting,Theft: from Building
+Agg Assault,77%,2%,,1%,,,,,,20%,,,,,,,,
+Aggravated Assault,4%,77%,0%,,2%,,,,1%,,10%,,6%,,,,0%,
+Auto Theft,,0%,90%,,1%,,,,,6%,2%,,2%,,,,,
+Burglary,0%,,,83%,0%,,,,,16%,,,,,,,,
+Burglary / 
+Breaking & Entering,,1%,0%,2%,86%,,,,0%,,5%,,6%,,,0%,0%,
+Homicide: Murder & Nonnegligent Manslaughter,,,,,,100%,,,,,,,,,,,,
+Murder,,,,33%,,,0%,,33%,33%,,,,,,,,
+Rape,,,,,,,,100%,,,,,,,,,,
+Robbery,,,,,0%,,,,98%,1%,0%,,,,,,,
+Theft,0%,,,1%,,,,,,99%,0%,,0%,,0%,,,
+Theft: All Other Larceny,,1%,0%,,2%,,,,,0%,93%,0%,4%,,,,0%,0%
+Theft: Auto Parts,,,,,7%,,,,,,20%,60%,13%,,,,,
+Theft: BOV,,1%,0%,,2%,,,,,0%,5%,0%,92%,,,,0%,
+Theft: Coin Op Machine,,,,,,,,,,,,,6%,94%,,,,
+Theft: Pocket Picking,,2%,,,2%,,,,,,9%,,9%,,75%,,4%,
+Theft: Purse Snatching,,,,,,,,,,,,,100%,,,0%,,
+Theft: Shoplifting,,,,,0%,,,,,0%,2%,,1%,,,,96%,
+Theft: from Building,,,,,15%,,,,,,15%,,22%,,,,,48%

@@ -12,5 +12,5 @@ Work is still in progress and as new items are added, this repository will be up
 - Local development has been done to establish the necessary items that will be required to complete the process: 
   - Python and SQL were used to clean the data 
   - BigQueryML was used to create a Logistic Regression model 
-  - Python to serve a Flask based web interface to accept user input and serve the saved TF model to generate predictions 
+  - Python to serve a Flask based web interface to accept user input and serve the saved LR model to generate predictions 
  - A Google Cloud Project called 'nitya-final-project' has been created, and development has begun within it 

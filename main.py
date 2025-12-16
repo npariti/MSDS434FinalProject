@@ -1,56 +1,56 @@
-import os
-import pandas as pd
 from flask import Flask, render_template
-from google.cloud import bigquery
-
-project_id  = 'nitya-final-project'
-dataset_id  = 'austincrimedata'
-table_train = 'austincrimedatatrain'
-table_predict  = 'austincrimedatapredict'
-
+import pandas as pd
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route("/", methods=["GET"])
 def index():
-    try:
-        endpoint = os.environ['API_ENDPOINT']
-    except KeyError: 
-        endpoint = 'Local'
-
-def model_train():
-
-    query_train = f'''
-        CREATE OR REPLACE MODEL `{project_id}.{dataset_id}.model2` 
-OPTIONS (model_type = 'Logistic_reg', input_label_cols = ['primary_type'])
-AS 
-SELECT * from `austincrimedata.austincrimedatatrain`;
-        '''
-    client = bigquery.Client(project = project_id)
-    query_job = client.query(query_train)
-    query_job.result()
+    """
+    Demo version of the Austin Crime Prediction app.
     
-    return "Model training finished"
+    Originally, this app queried a BigQuery ML Logistic Regression model
+    named 'model2' to generate crime predictions. Since the model is no
+    longer available, this demo uses sample data to simulate predictions.
+    """
 
-@app.route('/', methods=['GET', 'POST'])
-def model_test():
-     query_test = f'''
-         SELECT *
-          FROM ML.PREDICT(MODEL `{project_id}.{dataset_id}.model2`,
-          (
-          SELECT * from `austincrimedata.austincrimedatatrain`
-          )
-          )
-         '''
-     client = bigquery.Client(project = project_id)
-     query_job = client.query(query_test)
-     query_job.result()
-     df = query_job.to_dataframe()
-     return render_template('index.html',environment = endpoint, tables = df.to_html())
-    
-     return "Model prediction finished"
+    environment = "Local (mocked)"
 
+    # -----------------------------
+    # Original BigQuery query (commented out)
+    # -----------------------------
+    # from google.cloud import bigquery
+    # PROJECT_ID = "nitya-final-project"
+    # DATASET_ID = "austincrimedata"
+    # MODEL_NAME = "model2"
+    #
+    # query = f"""
+    #     SELECT *
+    #     FROM ML.PREDICT(
+    #         MODEL `{PROJECT_ID}.{DATASET_ID}.{MODEL_NAME}`,
+    #         (SELECT * FROM `{PROJECT_ID}.{DATASET_ID}.austincrimedatatrain`)
+    #     )
+    # """
+    # client = bigquery.Client(project=PROJECT_ID)
+    # query_job = client.query(query)
+    # results_df = query_job.to_dataframe()
 
+    # -----------------------------
+    # Mocked data for demo
+    # -----------------------------
+    sample_data = {
+        "incident_number": [1, 2, 3],
+        "primary_type": ["THEFT", "ASSAULT", "ROBBERY"],
+        "predicted_type": ["THEFT", "ASSAULT", "ROBBERY"],
+        "prediction_confidence": [0.85, 0.9, 0.75]
+    }
+    results_df = pd.DataFrame(sample_data)
+
+    return render_template(
+        "index.html",
+        page_type="Crime Prediction Results",
+        environment=environment,
+        tables=[results_df.to_html(classes="table table-striped")]
+    )
 
 if __name__ == "__main__":
-    app.run(host = '127.0.0.1', debug = True, port=int(os.environ.get("PORT", 8080)))
+    app.run(host="127.0.0.1", port=8080, debug=True)

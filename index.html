@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-{% include 'header.html' %}
-<body style="background-color: #e0e0e0">
-<div style="background-color: #e0e0e0">
-    <h1 class="text-center">{{page_type}} Pages</h1>
-</div>
-<div class="container">
+<head>
+    <meta charset="UTF-8">
+    <title>Crime Prediction Results</title>
     <style>
-        table {
-            text-align: center;
-        }
-
-        table thead th {
-            text-align: center;
-        }
+        body { background-color: #e0e0e0; font-family: Arial, sans-serif; }
+        table { text-align: center; border-collapse: collapse; margin: 0 auto; }
+        th, td { padding: 8px 12px; border: 1px solid #ccc; }
+        h1, p { text-align: center; }
     </style>
+</head>
+<body>
+
+    <h1>{{ page_type }}</h1>
+    <p><strong>Environment:</strong> {{ environment }}</p>
+
     {% for table in tables %}
-    {{ table|safe }}
+        {{ table | safe }}
     {% endfor %}
-</div>
+
 </body>
-{% include 'footer.html' %}
 </html>
